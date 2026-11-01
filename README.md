@@ -1,40 +1,46 @@
-# Najah AI · The Learning Lab
+# مختبر نجاح للذكاء الاصطناعي
 
-An interactive companion to Unit 03, Machine Learning & Deep Learning, for An-Najah National University's Introduction to AI and Data Science course (11000129).
+موقع تفاعلي باللغة العربية مرافق للوحدة الثالثة: **تعلّم الآلة والتعلّم العميق**، ضمن مساق مقدمة في الذكاء الاصطناعي وعلم البيانات بجامعة النجاح الوطنية (11000129). تظهر المصطلحات الأساسية بالعربية والإنجليزية، وتدعم الواجهة اتجاه القراءة من اليمين إلى اليسار.
 
-## Run
+## التشغيل محليًا
 
-Requires Node.js 20 or newer. No application dependencies, build step, credentials, database, or external dataset downloads are required.
+ثبّت Node.js بالإصدار 20 أو أحدث، ثم نفّذ:
 
 ```sh
-cd /workspace/teaching-Ml-Dl
+git clone https://github.com/MohammadNasser-CS/teaching-Ml-Dl.git
+cd teaching-Ml-Dl
 npm start
 ```
 
-The server listens on port 3000 (override with `PORT`). Run `npm test` for seven algorithm checks. The UI runs its numerical models directly in the browser. Progress stays in browser local storage; it is not a teacher gradebook or account system.
+افتح `http://localhost:3000` في المتصفح. لا تحتاج إلى `npm install`؛ التطبيق لا يعتمد على حزم خارجية. أبقِ نافذة الطرفية مفتوحة، واضغط `Ctrl+C` لإيقاف الخادم. لتحديث نسخة موجودة، أوقف الخادم ثم نفّذ `git pull origin main` وأعد التشغيل.
 
-## Experiments
+يمكن تغيير المنفذ بمتغيّر `PORT`. لا يحتاج الموقع إلى قاعدة بيانات أو بيانات اعتماد أو تنزيل مجموعات بيانات. تُحفظ حالة إكمال الاستكشافات محليًا في المتصفح؛ لا يوجد نظام حسابات أو سجل درجات للمعلّم.
 
-- **Supervised:** synthetic student grades and house prices with least-squares regression, 48/12 training/test split, held-out MAE, noise control, predictions, and complete dataset tables. Text classification uses Laplace-smoothed multinomial Naive Bayes on eight visible examples.
-- **Unsupervised:** step K-means through nearest-center assignments and mean updates. News coordinates are synthetic topic features, not generated text embeddings.
-- **Semi-supervised:** change the human-label budget and confidence threshold for distance-weighted nearest-neighbor pseudo-label selection. Reveal hidden truth to inspect mistakes. This demonstrates selection, not a full iterative self-training system.
-- **Reinforcement:** deterministic grid-world Q-learning, exploration control, episode rewards, and a greedy policy rollout. Rewards: goal +20, trap −10, step −1; α=.25, γ=.9.
-- **Neural networks:** train a real one-hidden-layer tanh/sigmoid network using backpropagation, inspect its connections and decision surface, and measure held-out accuracy. This deliberately small network teaches mechanics; the accompanying explanation distinguishes it from deeper architectures.
-- **Compare:** training workflow, comparison table, six formative questions with explanations, print view, and a suggested 60-minute teaching plan.
+## التجارب التعليمية
 
-The English interface includes Arabic chapter terminology. All datasets are synthetic and all results are educational demonstrations. The supplied chapter guides the scope; nuanced notes clarify that deep learning is a model family, pseudo-label confidence is not guaranteed correctness, and accuracy, data requirements, feature extraction, and interpretability depend on the task.
+تتبع التجارب خطوات مرقّمة، وتبقى أزرار التدريب والتقييم معطّلة إلى أن تكتمل المتطلبات السابقة.
 
-No chapter PDF is redistributed. No student data leaves the browser. This is a runnable teaching website, not a production LMS. To deploy, use a Node-capable host and its assigned PORT, or serve index.html and src as static files. No deployment has been performed by this project setup.
+- **التعلّم بإشراف (Supervised Learning):** توقّع درجات الطلاب وأسعار المنازل بالانحدار، وتصنيف رسائل عربية بمصنّف بايز الساذج (Naive Bayes). تظهر معادلة الانحدار وتكرارات الكلمات والتوقّع والخطأ لكل مثال اختباري. وحدات مساحة المنازل بالمتر المربّع، والأسعار بآلاف الدولارات.
+- **التعلّم بدون إشراف (Unsupervised Learning):** تجميع 18 خبرًا عربيًا بخوارزمية المتوسطات K (K-means). يضغط الطالب خطوة لإسناد الأخبار إلى أقرب مركز وخطوة أخرى لتحريك المراكز إلى المتوسطات. الإحداثيات خصائص مصطنعة للتعليم، وليست تمثيلات نصية محسوبة من الأخبار. مسافة الخبر عن المركز ليست دقة تصنيف.
+- **التعلّم شبه الخاضع للإشراف (Semi-supervised Learning):** فصل التسميات البشرية عن أمثلة التدريب غير الموسومة وعن الاختبار المعزول. يتعلّم النموذج الأولي بالتصويت المرجّح للمسافة بين أقرب ثلاثة جيران، ويقترح تسميات، ثم يُعاد بناء مرجع الجيران باستخدام المقترحات المقبولة. نقارن النموذجين على مجموعة الاختبار نفسها. الإجابات المرجعية معروضة للتعليم، لكنها لا تدخل اقتراح التسميات.
+- **التعلّم المعزّز (Reinforcement Learning):** روبوت يتحرّك في شبكة وفق تعلّم Q (Q-learning). يستطيع الطالب اختيار حركة ورؤية الحالة والفعل والمكافأة والقيمة السابقة والجديدة. التدريب المتكرّر يحتفظ بالذاكرة، والاختبار البطيء يثبّتها دون تحديث. المكافآت: الهدف +20، الفخ −10، وكل حركة أخرى −1. معدل التعلّم 0.25 ومعامل الخصم 0.9، والقيمة المستقبلية عند نهاية المحاولة صفر.
+- **الشبكات العصبية (Neural Networks):** شبكة صغيرة تتعلّم نمطًا غير قابل للفصل بخط مستقيم عبر الانتشار العكسي (Backpropagation). يمكن التدريب دورة واحدة أو 100 دورة، ورؤية التنشيطات والمخرج وحدود القرار ونتائج الاختبار. تحتوي الشبكة التعليمية على طبقة مخفية واحدة؛ نشرح كيف تمتد هذه الآلية إلى التعلّم العميق ذي الطبقات المخفية المتعددة.
+- **المقارنة واختبار الفهم:** جدول مقارنة، وخطوات إعداد النموذج، وستة أسئلة مع تفسير الإجابات، ودليل قابل للطباعة وخطة تدريس من 60 دقيقة.
 
-## Guided classroom workflow (updated)
+## تقسيم البيانات
 
-Each lab now has numbered steps and disabled actions until prerequisites are met. The supervised, clustering, semi-supervised, and neural-network labs let learners choose 60/40, 70/30, 80/20, or 90/10 train/test splits and reshuffle. Every row ID appears in a colored destination map and in the actual training or test tray. Changing the split clears learned state and scores.
+في تجارب الإشراف والتجميع وشبه الإشراف والشبكات العصبية، يمكن اختيار نسب تدريب/اختبار: 60/40 أو 70/30 أو 80/20 أو 90/10، وإعادة خلط الصفوف. تظهر هوية كل صف في خريطة ملوّنة وفي جدول المجموعة التي انتقل إليها. تغيير التقسيم يلغي النموذج السابق ونتائجه. تقسيم الرسائل يحافظ على تمثيل الفئتين، وقد تختلف النسبة قليلًا بسبب تقريب عدد الصفوف.
 
-- Regression displays its learned slope/intercept and every test row's prediction and absolute error. House area uses square metres directly.
-- Spam classification learns its vocabulary and class counts only from the training messages. The 16-message toy dataset is split within each class to retain both labels; counts can differ slightly from the requested percentage due to rounding.
-- Clustering separates assignment and center updates. Test articles use frozen centers. Distances are not labeled classification accuracy.
-- Semi-supervised learning separates human-labeled training, unlabeled training, and held-out test pools. A weighted three-neighbor baseline proposes labels, accepted proposals form the retrained neighbor reference set, and both models are evaluated against the same test answers. Hidden reference labels are displayed for teaching but not passed to pseudo-label generation.
-- Reinforcement learning is stateful: manual or automatic single moves expose state, action, reward, old/new Q values, and the numeric update. Terminal transitions use zero future value. Repeated training retains memory; slow test playback freezes it. No fixed train/test row split is imposed on interaction-generated experience.
-- Neural-network training offers one or 100 epochs, visible hidden activations and output for a training row, decision surface, and per-test-row predictions. The illustrative network has one hidden layer; it is an introduction to mechanisms used in deeper networks, not itself a deep architecture.
+في التعلّم المعزّز تتولّد الخبرة من التفاعل؛ لذلك نميّز التدريب الذي يحدّث الذاكرة عن الاختبار الذي يثبّتها بدل فرض تقسيم لصفوف موسومة ثابتة. رسم الشبكة والاتجاهات المكانية والحسابات تحتفظ باتجاهها الرياضي الصحيح داخل الواجهة العربية.
 
-Repeatedly tuning against displayed test results makes those results part of model selection. Use a fresh final test set for a formal evaluation. The deterministic reinforcement test demonstrates one start condition, not robust generalization.
+## التحقق والقيود
+
+```sh
+npm test
+```
+
+تتحقق الاختبارات من الخوارزميات والتقسيم وتحديث قيم الأفعال وثبات الذاكرة أثناء الاختبار، ومن خدمة الملفات على ويندوز، وتصنيف الكلمات العربية والتعامل مع التشكيل.
+
+كل البيانات مصطنعة للتعليم؛ لا يحتوي الموقع على بيانات حقيقية للطلاب أو المرضى، ولا يعيد توزيع ملف الفصل. نماذج الرسائل بسيطة وصغيرة، والكلمات غير الموجودة في مفردات التدريب تُهمَل. لا تضمن الثقة صحة التوقّع، ولا يضمن التعلّم العميق أداءً أفضل. التعديل المتكرّر بناءً على نتائج الاختبار يجعلها جزءًا من اختيار النموذج؛ يلزم اختبار نهائي مستقل للتقييم الرسمي. اختبار الروبوت من موضع بداية واحد في عالم حتمي لا يثبت التعميم.
+
+يمكن استضافة ملفات `index.html` و`src` استضافة ثابتة، أو تشغيل الخادم على استضافة تدعم Node.js. لا يعني نشر بيئة التطوير أن الموقع منشور برابط عام.
