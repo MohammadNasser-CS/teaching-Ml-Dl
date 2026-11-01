@@ -21,7 +21,9 @@ test('HTTP server returns the homepage and assets and rejects private paths',asy
   try {
     const base=`http://127.0.0.1:${server.address().port}`;
     const home=await fetch(base+'/');assert.equal(home.status,200);assert.match(await home.text(),/مختبر نجاح للذكاء الاصطناعي/);
-    const js=await fetch(base+'/src/app.js');assert.equal(js.status,200);assert.match(js.headers.get('content-type'),/javascript/);
+    assert.equal(home.headers.get('cache-control'),'no-store');
+    assert.equal(home.headers.get('content-language'),'ar');
+    const js=await fetch(base+'/src/app.js');assert.equal(js.status,200);assert.match(js.headers.get('content-type'),/javascript; charset=utf-8/);
     assert.equal((await fetch(base+'/.git/config')).status,403);
     assert.equal((await fetch(base+'/missing-file')).status,404);
   } finally {await new Promise(resolve=>server.close(resolve));}
