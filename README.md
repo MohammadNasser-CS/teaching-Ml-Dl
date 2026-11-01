@@ -25,3 +25,16 @@ The server listens on port 3000 (override with `PORT`). Run `npm test` for seven
 The English interface includes Arabic chapter terminology. All datasets are synthetic and all results are educational demonstrations. The supplied chapter guides the scope; nuanced notes clarify that deep learning is a model family, pseudo-label confidence is not guaranteed correctness, and accuracy, data requirements, feature extraction, and interpretability depend on the task.
 
 No chapter PDF is redistributed. No student data leaves the browser. This is a runnable teaching website, not a production LMS. To deploy, use a Node-capable host and its assigned PORT, or serve index.html and src as static files. No deployment has been performed by this project setup.
+
+## Guided classroom workflow (updated)
+
+Each lab now has numbered steps and disabled actions until prerequisites are met. The supervised, clustering, semi-supervised, and neural-network labs let learners choose 60/40, 70/30, 80/20, or 90/10 train/test splits and reshuffle. Every row ID appears in a colored destination map and in the actual training or test tray. Changing the split clears learned state and scores.
+
+- Regression displays its learned slope/intercept and every test row's prediction and absolute error. House area uses square metres directly.
+- Spam classification learns its vocabulary and class counts only from the training messages. The 16-message toy dataset is split within each class to retain both labels; counts can differ slightly from the requested percentage due to rounding.
+- Clustering separates assignment and center updates. Test articles use frozen centers. Distances are not labeled classification accuracy.
+- Semi-supervised learning separates human-labeled training, unlabeled training, and held-out test pools. A weighted three-neighbor baseline proposes labels, accepted proposals form the retrained neighbor reference set, and both models are evaluated against the same test answers. Hidden reference labels are displayed for teaching but not passed to pseudo-label generation.
+- Reinforcement learning is stateful: manual or automatic single moves expose state, action, reward, old/new Q values, and the numeric update. Terminal transitions use zero future value. Repeated training retains memory; slow test playback freezes it. No fixed train/test row split is imposed on interaction-generated experience.
+- Neural-network training offers one or 100 epochs, visible hidden activations and output for a training row, decision surface, and per-test-row predictions. The illustrative network has one hidden layer; it is an introduction to mechanisms used in deeper networks, not itself a deep architecture.
+
+Repeatedly tuning against displayed test results makes those results part of model selection. Use a fresh final test set for a formal evaluation. The deterministic reinforcement test demonstrates one start condition, not robust generalization.
