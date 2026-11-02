@@ -49,3 +49,131 @@ html[dir="rtl"] footer{line-height:1.9;font-size:10px}
 @media(max-width:850px){html[dir="rtl"] aside{position:static;width:auto;padding:18px 20px;overflow:visible}html[dir="rtl"] main{margin:0}html[dir="rtl"] .brand{font-size:20px}html[dir="rtl"] .nav-item{padding:9px 12px}html[dir="rtl"] .nav-item>span:nth-child(2){font-size:11px}html[dir="rtl"] .nav-item small{display:none}}
 @media(max-width:650px){html[dir="rtl"] h1{font-size:29px}html[dir="rtl"] .intro p{font-size:13px}html[dir="rtl"] .concept-strip>span{font-size:11px}html[dir="rtl"] .forward-flow>span{transform:rotate(90deg)}html[dir="rtl"] .avatar{margin-right:8px}html[dir="rtl"] footer{font-size:9px}}
 @media print{html[dir="rtl"] main{margin:0}html[dir="rtl"] .english-term{text-align:right}}
+
+/* High-contrast classroom palette: ink, indigo, teal, and amber. */
+:root{--ink:#18243b;--muted:#48576d;--purple:#5935b5;--line:#ccd5e2;background:#eaf0f6;color:var(--ink)}
+body{background:#eaf0f6;color:var(--ink)}
+html[dir="rtl"] aside{background:#17243e;border-color:#2f4161;box-shadow:-4px 0 22px #12213b12}
+html[dir="rtl"] .brand{color:#fff}
+.brand-icon{background:#7850cc;color:#fff}
+html[dir="rtl"] :is(.brand-light,.brand small,.course-tag,.nav-label){color:#c2cee2}
+.course-title{color:#fff}
+.nav-item{color:#e1e9f7;border:1px solid transparent}
+.nav-item small{color:#bcc9df}
+.nav-item:hover{background:#243858;border-color:#486080}
+.nav-item.active{background:#6b45bd;border-color:#a98bdf;color:#fff;box-shadow:0 4px 12px #0002}
+.nav-item.active small{color:#f2eaff}
+.nav-check{color:#c5d3ea}
+.side-bottom{color:#e1e9f7}
+.progress-heading span{color:#d5c6ff}
+.progress-track{background:#354563}
+.progress-track i{background:#b89cff}
+.side-bottom p{color:#c1cde0}
+.chapter{border-color:#42516c;color:#c9d5e8}
+.chapter span,.chapter small{color:#d8e2f2}
+header{background:#fff;border-color:#ccd5e2}
+.breadcrumbs,.header-right{color:#43536b}
+.breadcrumbs span{color:#65758b}
+.live-dot{background:#07805f;width:7px;height:7px}
+.avatar{background:#e6dbfa;color:#4e2b99;font-weight:700}
+.eyebrow,.section-kicker,.lesson-number{color:#4d436d}
+.unit-pill{background:#e2d6f7;border-color:#c7afe9;color:#4d2f80}
+.intro{background:linear-gradient(115deg,#293b61,#19273f);border:1px solid #32466b;border-radius:16px;padding:30px;margin:24px 0;color:#fff;box-shadow:0 9px 24px #17243e14}
+.intro .lesson-number{color:#d8c7ff}
+.intro .lesson-number span{color:#c1cde0}
+h1 em{color:#cbb1ff}
+html[dir="rtl"] .intro p{color:#e0e8f5}
+.art-ring{border-color:#b497e2;box-shadow:0 0 0 18px #ffffff08,0 0 0 35px #ffffff04}
+.art-ring b{color:#cbb1ff}
+.art-ring span{color:#e4d9f8}
+.concept-strip{background:#e1d9f1;border-color:#b9a8d2}
+.concept-strip>span{color:#402866}
+.concept-strip p{color:#564267}
+.concept-strip button{color:#493074;font-weight:700}
+html[dir="rtl"] .english-term{color:#57466e}
+h2{color:#172b47}
+.lab-card{border-color:#c6d0df;box-shadow:0 5px 18px #2636500a}
+.lab-intro{background:#f5f2fc;border-bottom:1px solid #d6cbe8}
+.lab-intro h3{color:#342155}
+.lab-intro p{color:#4c405c}
+.lab-badge{background:#573395;color:#fff;border-color:#573395}
+.tabs{background:#fff;border-color:#cbd4e2}
+.tabs button{color:#47536a}
+.tabs button:hover{color:#4c2497;background:#f3edfc}
+.tabs button.selected{color:#542b9f;border-color:#663abb;font-weight:700}
+.teaching-step{border-color:#d0d8e5}
+.teaching-step>h3{color:#1c304c}
+.teaching-step>h3>span{background:#5d37ac;color:#fff;box-shadow:0 2px 6px #5935b522}
+.explain{color:#3e4c60}
+.learning-status{background:#eee7fa;color:#3f285d;border-color:#7045b8}
+html[dir="rtl"] .learning-status{border-right-color:#7045b8}
+.teaching-step .primary,.primary{background:#5932a4;color:#fff;box-shadow:0 3px 7px #5932a428;border:1px solid #5932a4}
+.teaching-step .primary:hover,.primary:hover{background:#43217f;border-color:#43217f}
+.secondary,.teaching-step .secondary{background:#e8dff6;color:#472477;border:1px solid #b9a0d8}
+.secondary:hover,.teaching-step .secondary:hover{background:#dac9ef}
+.reset,.teaching-step .reset{background:#edf1f7;border-color:#bbc6d5;color:#334760}
+.teaching-step button:disabled{opacity:1;background:#e3e8ef;color:#647083;border-color:#cbd3dd;box-shadow:none}
+.field-label,.lesson-controls label{color:#33445d}
+.field-label input,.field-label select,.lesson-controls select{border-color:#a5b3c7;color:#24364e;background:#fff}
+.split-legend b:first-child{color:#51269a}
+.split-legend b:last-child{color:#80500b}
+.train-chip{background:#6b43b4;color:#fff;border-color:#583395;font-weight:700}
+.test-chip{background:#efbd58;color:#493008;border-color:#c98c22;font-weight:700}
+.split-columns h4{color:#36465d}
+.rows-scroll{border-color:#bbc7d7}
+.rows-scroll th{background:#283d5e;color:#fff;border-color:#526481}
+.rows-scroll td{color:#24364d;border-color:#ced6e3}
+.train-row{background:#f0e9fa}
+.test-row{background:#fff1d3}
+.rows-scroll tbody tr:hover{box-shadow:inset 0 0 0 2px #9479bf;background:#e9e2f3}
+.guide-card{background:#e5dbf4;border-color:#b5a0d2}
+.guide-card h3{color:#3d245f}
+.guide-card p{color:#4f3b68}
+.guide-card .eyebrow{color:#5c3e7f}
+.guide-icon{background:#6a43a5;color:#fff}
+.flow{color:#4e326b;border-color:#bca5d7}
+.try-card>span{color:#906016}
+.try-card h4{color:#293c55}
+.try-card p{color:#46556a}
+.complete{background:#dfd1f1;border-color:#b79bd6;color:#49276f;font-weight:700}
+.data-note{color:#526074}
+.takeaway{background:#fff0ce;border-color:#dfba69}
+.takeaway>span:first-child{color:#8b5b0e}
+.takeaway b{color:#725015}
+.takeaway p,.takeaway-tag{color:#71582a}
+.rl-definitions>div{background:#e7edf6;border:1px solid #c0ccde}
+.rl-definitions b{color:#243d5b}
+.rl-definitions p{color:#43546b}
+.cell{background:#e3e9f2;border:1px solid #b5c1d3;color:#4d5d77}
+.cell small{color:#485a73}
+.cell.path{background:#d4c1f0;color:#50347b;border-color:#a787d0}
+.cell.trap{background:#fbd5d3;color:#9c2826;border-color:#da8985}
+.cell.goal{background:#bce7d6;color:#0e5a42;border-color:#59a68a}
+.cell.robot-cell{background:#5935a3;color:#fff;outline-color:#c1a4ec;border-color:#3e1d7c}
+.cell.robot-cell small{color:#f3ecff}
+.transition-cards>div,.q-cards>div{background:#f1ebf9;border-color:#bfa9db}
+.transition-cards b,.q-cards b{color:#3f2b5b}
+.transition-cards small,.q-cards small{color:#665078}
+.q-cards strong{color:#55338b}
+.q-cards .updated{background:#dfc9fa;border-color:#7e4cba}
+.math-details{background:#f7f3fc;border-color:#b9a1d5}
+.math-details summary{color:#4c3167}
+.math-details code{color:#452b62}
+.forward-flow{background:#e9dff6;border:1px solid #bca5d8}
+.forward-flow b{color:#432c60}
+.forward-flow p{color:#503d67}
+.axis{fill:#4f6076}
+.comparison,.workflow,.quiz,.teacher-note{border-color:#bfcbdb;box-shadow:0 3px 12px #26365008}
+.comparison th{background:#283d5e;color:#fff}
+.comparison td{color:#253b55}
+.highlight-row{background:#e8dcf6}
+.workflow h3,.quiz h3,.teacher-note h3{color:#233957}
+.workflow article>span,.quiz legend span{color:#6539a0;font-weight:700}
+.workflow p,.quiz>p,.teacher-note p{color:#43536b}
+.workflow h4,.quiz legend{color:#263c58}
+.quiz label{color:#40516a}
+.feedback,#score{color:#4c287d;font-weight:500}
+footer{color:#4f6076}
+button:focus-visible,a:focus-visible,input:focus-visible,textarea:focus-visible,select:focus-visible{outline:3px solid #b57818;outline-offset:3px}
+@media(max-width:650px){.intro{padding:22px 18px;margin:18px 0}.nav-item.active{box-shadow:none}}
+@media print{body{background:#fff}.intro,.guide-card,.learning-status,.takeaway{box-shadow:none;color:#000}.rows-scroll th,.comparison th{background:#e3e3e3;color:#000}}
